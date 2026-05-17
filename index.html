@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>logo graphic designer near me — סטודיו AURA</title>
+    <meta name="description" content="A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bak">
+    <meta name="keywords" content="logo graphic designer near me, graphic designer for clothing brand, graphic design for business logo, graphic design company logo">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '639f58d6-2d28-4ad7-b7d4-01d0e7338a6c',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="logo graphic designer near me — סטודיו AURA">
+    <meta property="og:description" content="A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bak">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="logo graphic designer near me — סטודיו AURA">
+    <meta name="twitter:description" content="A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bak">
+    <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .skip-link { position: absolute; top: 0; left: 0; transform: translateY(-200%); padding: 12px 18px; background: var(--bg-dark, #1a1a1a); color: var(--text-light, #fff); font-weight: 600; border-radius: 0 0 8px 0; z-index: 10000; }
+    .skip-link:focus { transform: none; outline: 2px solid var(--ring, #fff); outline-offset: 2px; }
+    :focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 3px; }
+  </style>
+
+
+  
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: var(--text-dark, #333) !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+      [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 10px !important; padding-right: 28px !important; }
+      .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus (exclude catalog sub-menus that use <a> children instead of <li>) */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))):not(:has(> a)), .sub-menu:not(:has(li)):not(:has(> a)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .navbar .sub-menu.mobile-expanded, .nav-menu .sub-menu.mobile-expanded, #navMenu .sub-menu.mobile-expanded { max-height: none !important; overflow-y: visible !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-light) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-light) !important; white-space: normal !important; }
+        .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+        [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 0 !important; padding-right: 28px !important; }
+        .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+        .nav-menu.active, #navMenu.active { max-width: 100vw !important; overflow-x: hidden !important; box-sizing: border-box !important; }
+        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-light) !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
+      html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
+      html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
+      html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="ltr"] ._access-icon,
+      html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
+      html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
+      @media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+      @media (min-width: 769px) { .whatsapp-float { display: flex !important; } }
+      @media (max-width: 768px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+      @media (min-width: 769px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+
+  <button class="phone-header-btn" data-phone="[business_phone]" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+
+  <div class="nav-container">
+    <div class="nav-right-group"><div class="nav-brand">
+      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="סטודיו AURA"></a>
+    </div><ul class="nav-menu" id="navMenu"><li><a href="#services">שירותים</a></li><li><a href="#benefits">יתרונות</a></li><li><a href="#portfolio">תיק עבודות</a></li><li><a href="#testimonials">המלצות</a></li><li><a href="#stats">נתונים</a></li></ul></div>
+
+    
+
+    <div class="nav-cta-container">
+      <a href="#contact" class="nav-cta-btn">צור קשר</a>
+    </div>
+  </div>
+</nav>
+<script>
+
+// Navbar Mobile Menu Toggle and Contrast Fix
+(function() {
+  // Use 'load' event instead of 'DOMContentLoaded' to ensure we run AFTER all other scripts
+  window.addEventListener('load', function() {
+    
+    // FIX MOBILE BUTTON CONTRAST
+    // Detect navbar background color and apply contrasting color to mobile buttons
+    const navbar = document.querySelector('.navbar, nav, header');
+    if (!navbar) {
+      console.log('[Navbar] Navbar element not found');
+      return;
+    }
+    
+    // DECLARE VARIABLES EARLY to avoid Temporal Dead Zone errors
+    // These are used in multiple places below
+    let mobileToggle = document.getElementById('mobileToggle') ||
+                       document.querySelector('.mobile-toggle') ||
+                       document.querySelector('.hamburger') ||
+                       document.querySelector('.hamburger-menu') ||
+                       document.querySelector('.menu-toggle') ||
+                       document.querySelector('.burger-menu') ||
+                       document.querySelector('[aria-label="Menu"]') ||
+                       document.querySelector('[aria-label="תפריט"]');
+    
+    const phoneBtn = document.querySelector('.phone-header-btn');
+    
+    const computedStyle = window.getComputedStyle(navbar);
+    let bgColor = computedStyle.backgroundColor;
+    
+    console.log('[Navbar] Initial navbar background:', bgColor);
+    
+    // Check if background is transparent or rgba with 0 alpha
+    const isTransparent = bgColor === 'transparent' || 
+                         bgColor === 'rgba(0, 0, 0, 0)' ||
+                         (bgColor.startsWith('rgba') && bgColor.includes(', 0)'));
+    
+    if (isTransparent) {
+      // Check for background-image or gradient
+      const bgImage = computedStyle.backgroundImage;
+      if (bgImage && bgImage !== 'none') {
+        console.log('[Navbar] Navbar has background image/gradient, using dark text');
+        bgColor = 'rgb(240, 240, 240)'; // Assume light background
+      } else {
+        // Transparent navbar - check body background
+        const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+        console.log('[Navbar] Navbar transparent, using body background:', bodyBg);
+        bgColor = bodyBg;
+      }
+    }
+    
+    // Calculate luminance to determine if background is light or dark
+    const rgb = bgColor.match(/\d+/g);
+    if (rgb && rgb.length >= 3) {
+      const r = parseInt(rgb[0]);
+      const g = parseInt(rgb[1]);
+      const b = parseInt(rgb[2]);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      
+      // Mobile button colors are set by Claude's AI-generated CSS (same as .nav-menu a)
+      // No dynamic color overrides needed - colors come from the generated navbar CSS
+      console.log('[Navbar] Mobile button colors preserved from Claude CSS (luminance:', luminance.toFixed(2) + ')');
+      
+      // FIX ICON SIZES - Ensure SVGs are properly sized and visible
+      // INJECT CRITICAL CSS TO OVERRIDE ANY CONFLICTING RULES
+      const criticalCSS = document.createElement('style');
+      criticalCSS.id = 'zappy-mobile-nav-fix';
+      const htmlLang = document.documentElement.lang || 'en';
+      const htmlDir = document.documentElement.dir || 'ltr';
+      // Check both dir attribute AND lang for RTL detection
+      // dir="rtl" is the most reliable indicator
+      const isRTL = htmlDir === 'rtl' || htmlLang === 'he' || htmlLang === 'ar';
+      
+      criticalCSS.textContent = `
+        /* Hide mobile buttons on desktop, show only on mobile */
+        @media (min-width: 769px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            display: none !important;
+          }
+        }
+        
+        /* Show and position mobile buttons correctly on mobile */
+        @media (max-width: 768px) {
+          .navbar,
+          nav.navbar {
+            min-height: 70px !important;
+          }
+
+          .mobile-toggle,
+          .phone-header-btn {
+            position: absolute !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            margin-top: auto !important;
+            margin-bottom: auto !important;
+            transform: none !important;
+            z-index: 1001 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 6px !important;
+            background: none !important;
+            color: var(--nav-text, var(--text-light)) !important;
+            touch-action: manipulation !important;
+            -webkit-tap-highlight-color: transparent !important;
+          }
+
+          html[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          body[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] header .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] nav .phone-header-btn {
+            display: none !important;
+            visibility: hidden !important;
+            width: 0 !important;
+            height: 0 !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+          }
+          
+          /* LTR positioning (default): hamburger LEFT, phone RIGHT */
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+          html[dir="ltr"] .mobile-toggle {
+            left: 12px !important;
+            right: auto !important;
+          }
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+          html[dir="ltr"] .phone-header-btn {
+            right: 12px !important;
+            left: auto !important;
+          }
+          
+          /* RTL positioning: hamburger RIGHT, phone LEFT */
+          html[dir="rtl"] .mobile-toggle,
+          html[lang="he"] .mobile-toggle,
+          html[lang="ar"] .mobile-toggle {
+            right: 12px !important;
+            left: auto !important;
+          }
+          html[dir="rtl"] .phone-header-btn,
+          html[lang="he"] .phone-header-btn,
+          html[lang="ar"] .phone-header-btn {
+            left: 12px !important;
+            right: auto !important;
+          }
+          
+          /* CRITICAL: Ensure nav-container has min-height on mobile */
+          /* All children are positioned absolutely/fixed on mobile, so height:auto collapses to 0 */
+          .nav-container {
+            min-height: 70px !important;
+            position: relative !important;
+          }
+          
+          /* Ensure SVG icons are properly sized and inherit color */
+          .mobile-toggle svg,
+          .phone-header-btn svg {
+            width: 24px !important;
+            height: 24px !important;
+            /* Don't force display - let JavaScript control hamburger/close toggle */
+          }
+          
+          /* Reset nav-cta-container on mobile - remove desktop box-shadow/padding */
+          /* that creates a visible ghost box when CTA button is hidden */
+          .nav-cta-container {
+            box-shadow: none !important;
+            padding: 0 !important;
+          }
+          
+          /* Hide nav-cta-container entirely on mobile when there's no lang-switcher */
+          /* (only the CTA button is inside, and it's hidden on mobile) */
+          .nav-cta-container:not(:has(.lang-switcher)) {
+            display: none !important;
+          }
+          
+          /* CRITICAL: Prevent hero image fade gradient from bleeding over headline text */
+          /* The .image-fade-gradient has bottom: -30px (extends below parent) */
+          /* On mobile stacked layout, this overlaps the h1 text below the image */
+          .hero-image-column {
+            overflow: hidden !important;
+          }
+          .image-fade-gradient {
+            bottom: 0 !important;
+          }
+          
+          /* Hide desktop language switcher on mobile - hamburger menu handles it */
+          /* High specificity to override stored CSS */
+          .lang-switcher,
+          .nav-cta-container .lang-switcher,
+          .nav-container .lang-switcher,
+          .navbar .lang-switcher,
+          .navbar .nav-cta-container .lang-switcher {
+            display: none !important;
+          }
+        }
+      `;
+      
+      // Remove existing fix if present and inject new one
+      const existing = document.getElementById('zappy-mobile-nav-fix');
+      if (existing) existing.remove();
+      document.head.appendChild(criticalCSS);
+      
+      console.log('[Navbar] Critical CSS injected for mobile nav positioning');
+      
+      // ONLY apply inline positioning styles on mobile viewport
+      // On desktop, the CSS handles hiding these buttons with display: none
+      // Inline styles were breaking desktop layout by overriding CSS
+      const isMobileViewport = window.innerWidth <= 768;
+      
+      if (mobileToggle) {
+        // Icon sizing applies to all viewports for consistency
+        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+        const closeIcon = mobileToggle.querySelector('.close-icon');
+        
+        if (hamburgerIcon) {
+          hamburgerIcon.style.setProperty('width', '24px', 'important');
+          hamburgerIcon.style.setProperty('height', '24px', 'important');
+          hamburgerIcon.style.setProperty('display', 'block', 'important'); // Show hamburger by default
+        }
+        if (closeIcon) {
+          closeIcon.style.setProperty('width', '24px', 'important');
+          closeIcon.style.setProperty('height', '24px', 'important');
+          closeIcon.style.setProperty('display', 'none', 'important'); // Hide close icon by default
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          mobileToggle.style.setProperty('position', 'absolute', 'important');
+          mobileToggle.style.setProperty('top', '0', 'important');
+          mobileToggle.style.setProperty('bottom', '0', 'important');
+          mobileToggle.style.setProperty('margin-top', 'auto', 'important');
+          mobileToggle.style.setProperty('margin-bottom', 'auto', 'important');
+          mobileToggle.style.setProperty('transform', 'none', 'important');
+          mobileToggle.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          
+          console.log('[Navbar] Mobile toggle positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          mobileToggle.style.removeProperty('position');
+          mobileToggle.style.removeProperty('top');
+          mobileToggle.style.removeProperty('transform');
+          mobileToggle.style.removeProperty('z-index');
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared mobile toggle inline positioning');
+        }
+      }
+      
+      if (phoneBtn) {
+        // Icon sizing applies to all viewports
+        const phoneIcon = phoneBtn.querySelector('svg');
+        if (phoneIcon) {
+          phoneIcon.style.width = '24px';
+          phoneIcon.style.height = '24px';
+          phoneIcon.setAttribute('width', '24');
+          phoneIcon.setAttribute('height', '24');
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          phoneBtn.style.setProperty('position', 'absolute', 'important');
+          phoneBtn.style.setProperty('top', '0', 'important');
+          phoneBtn.style.setProperty('bottom', '0', 'important');
+          phoneBtn.style.setProperty('margin-top', 'auto', 'important');
+          phoneBtn.style.setProperty('margin-bottom', 'auto', 'important');
+          phoneBtn.style.setProperty('transform', 'none', 'important');
+          phoneBtn.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          
+          console.log('[Navbar] Phone button positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          phoneBtn.style.removeProperty('position');
+          phoneBtn.style.removeProperty('top');
+          phoneBtn.style.removeProperty('transform');
+          phoneBtn.style.removeProperty('z-index');
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared phone button inline positioning');
+        }
+      }
+    } else {
+      console.log('[Navbar] Could not parse background color:', bgColor);
+    }
+    
+    // MOBILE MENU TOGGLE
+    // Re-query in case DOM changed (mobileToggle already declared at top of function)
+    mobileToggle = document.getElementById('mobileToggle') ||
+                   document.querySelector('.mobile-toggle') ||
+                   document.querySelector('.hamburger') ||
+                   document.querySelector('.hamburger-menu') ||
+                   document.querySelector('.menu-toggle') ||
+                   document.querySelector('.burger-menu') ||
+                   document.querySelector('[aria-label="Menu"]') ||
+                   document.querySelector('[aria-label="תפריט"]');
+    
+    // EXPANDED SEARCH: Find nav menu by ID or class
+    const navMenu = document.getElementById('navMenu') ||
+                  document.querySelector('.nav-menu') ||
+                  document.querySelector('.nav-links') ||
+                  document.querySelector('nav ul:not(.submenu)');
+    
+    if (!mobileToggle || !navMenu) {
+      console.log('[Navbar] Mobile toggle or menu not found:', { toggle: !!mobileToggle, menu: !!navMenu });
+      return;
+    }
+    
+    // Ensure navMenu has ID for CSS targeting
+    if (!navMenu.id) {
+      navMenu.id = 'navMenu';
+    }
+    
+    console.log('[Navbar] Initializing mobile menu...');
+    
+    // Remove any existing event listeners by cloning the button
+    const newToggle = mobileToggle.cloneNode(true);
+    mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+    
+    // Toggle menu handler (shared by click and touchend)
+    function handleToggle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+      const closeIcon = newToggle.querySelector('.close-icon');
+      const isActive = navMenu.classList.contains('active');
+      
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'none', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'block', 'important');
+        document.body.style.overflow = 'hidden';
+        console.log('[Navbar] Menu opened');
+      }
+    }
+    
+    // Use click for desktop/emulation and touchend as iOS Safari fallback.
+    // Prevent double-fire with a timestamp guard.
+    var lastToggleTime = 0;
+    function guardedToggle(e) {
+      var now = Date.now();
+      if (now - lastToggleTime < 300) return;
+      lastToggleTime = now;
+      handleToggle(e);
+    }
+    
+    newToggle.addEventListener('click', guardedToggle);
+    newToggle.addEventListener('touchend', guardedToggle);
+    
+    // Close menu when clicking nav links (but NOT dropdown toggles)
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Don't close if it's a dropdown child (unless it's a real navigation link)
+        if (this.getAttribute('href') === '#') return;
+        
+        const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+        const closeIcon = newToggle.querySelector('.close-icon');
+        
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed (link clicked)');
+      });
+    });
+    
+    // DROPDOWN MENU TOGGLE (for mobile and touch devices)
+    var dropdownToggles = navMenu.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var parent = this.closest('.nav-dropdown');
+        if (!parent) return;
+        
+        // Close other open dropdowns at the same level
+        var siblings = parent.parentNode.querySelectorAll('.nav-dropdown.open');
+        siblings.forEach(function(sib) {
+          if (sib !== parent) sib.classList.remove('open');
+        });
+        
+        parent.classList.toggle('open');
+        console.log('[Navbar] Dropdown toggled:', parent.classList.contains('open') ? 'open' : 'closed');
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        var openDropdowns = document.querySelectorAll('.nav-dropdown.open');
+        openDropdowns.forEach(function(dd) { dd.classList.remove('open'); });
+      }
+    });
+    
+    console.log('[Navbar] Dropdown handlers initialized for ' + dropdownToggles.length + ' dropdowns');
+    
+    // Phone button functionality (phoneBtn already declared at top of function)
+    if (phoneBtn) {
+      phoneBtn.addEventListener('click', function() {
+        // Get phone number from placeholder in page or use default
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        const phoneNumber = phoneLinks.length > 0 
+          ? phoneLinks[0].getAttribute('href').replace('tel:', '')
+          : '[business_phone]';
+        
+        window.location.href = 'tel:' + phoneNumber;
+        console.log('[Navbar] Phone button clicked');
+      });
+    }
+    
+    console.log('[Navbar] Mobile menu initialized successfully');
+    
+    // WhatsApp button visibility is now controlled via CSS (siteSettings).
+    // No JS-based desktop hiding — the button is visible on both mobile and desktop by default.
+  });
+})();
+
+</script>
+  
+  <main id="main">
+    <section data-band-index="0" id="hero" class="index-hero-section" data-layout-spec="בית-hero" dir="rtl" data-hero-type="fullscreen-scrim">
+  <!-- Background Image -->
+  <div class="hero-bg-wrapper">
+    <img loading="eager" fetchpriority="high" data-hero-bg="true" data-placeholder="index-hero-image-1" data-context="Premium graphic design studio workspace, luxury branding materials spread on a dark matte black desk, printed brand identity mockups with metallic gold foil details, elegant business cards with embossed lettering, luxury stationery, a fountain pen resting on cream paper, soft cinematic side-lighting with warm amber and gold tones, bokeh background, editorial photography style, high-end agency feel" width="1440" height="900" src="/assets/site-index-hero-image-1.webp" alt="סטודיו AURA – עיצוב גרפי ומיתוג פרימיום" class="hero-bg-img">
+  </div>
+
+  <!-- Film Grain Overlay -->
+  <div class="hero-grain" aria-hidden="true"></div>
+
+  <!-- Decorative: Radial Gold Glow -->
+  <div class="hero-gold-glow" aria-hidden="true"></div>
+
+  <!-- Decorative: Gold Ink Splash SVG -->
+  <svg class="hero-ink-splash" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="200" cy="160" rx="180" ry="120" fill="rgba(201,168,76,0.10)"></ellipse>
+    <ellipse cx="280" cy="260" rx="80" ry="55" fill="rgba(201,168,76,0.07)"></ellipse>
+    <ellipse cx="120" cy="300" rx="60" ry="38" fill="rgba(201,168,76,0.05)"></ellipse>
+    <path d="M200,80 Q320,120 340,200 Q360,280 260,320 Q180,360 100,300 Q40,240 80,160 Q120,80 200,80Z" fill="rgba(201,168,76,0.06)"></path>
+  </svg>
+
+  <!-- Dark Scrim Overlay -->
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <!-- Hero Content -->
+  <div class="hero-content-wrapper">
+    <div class="hero-content">
+
+      <!-- Micro intro label -->
+      <div class="hero-label">
+        <span class="hero-label-dot" aria-hidden="true"></span>
+        סטודיו עיצוב ומיתוג פרימיום
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-h1">עיצוב שלא רק נראה טוב —<br><span class="hero-h1-gold">הוא מביא לקוחות</span></h1>
+
+      <!-- Gold accent rule -->
+      <div class="hero-gold-rule" aria-hidden="true"></div>
+
+      <!-- Supporting Subtitle -->
+      <h3 class="hero-subtitle">סטודיו AURA הוא לא רק מקום לעיצוב — הוא כלי צמיחה עסקי.<br class="hero-br-desktop">מיתוג חזק = יותר אמון = יותר לקוחות.</h3>
+
+      <!-- CTA Group -->
+      <div class="hero-cta-group">
+        
+        <a href="#hero-scroll-target" class="hero-btn-secondary">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          צפה בעבודות שלנו
+        </a>
+      </div>
+
+      <!-- Trust Strip -->
+      <div class="hero-trust-strip">
+        <div class="hero-trust-item">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          מסירה מהירה
+        </div>
+        <span class="hero-trust-sep" aria-hidden="true">·</span>
+        <div class="hero-trust-item">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          עיצוב ברמה פרימיום
+        </div>
+        <span class="hero-trust-sep" aria-hidden="true">·</span>
+        <div class="hero-trust-item">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          חשיבה שיווקית עסקית
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Divider: diagonal clip into dark next section -->
+  <div class="hero-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 L0,28 Q180,10 360,22 T720,14 Q900,6 1080,18 T1440,8 L1440,90 Z" fill="var(--bg-dark)"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section data-band-index="1" id="services" class="index-services-section" data-layout-spec="בית-services" dir="rtl">
+  <!-- Decorative background elements -->
+  <div class="iss-bg-decoration" aria-hidden="true">
+    <div class="iss-radial-glow"></div>
+    <div class="iss-dot-grid"></div>
+  </div>
+
+  <!-- Intro Block -->
+  <div class="iss-container">
+    <div class="iss-intro">
+      <span class="iss-eyebrow">מה אנחנו עושים</span>
+      <h2 class="iss-title">שירותים שהופכים עסק<br><em class="iss-title-accent">לסמל שמוכר</em></h2>
+      <p class="iss-subtitle">כל עיצוב שאנחנו יוצרים נבנה עם חשיבה שיווקית — כי מיתוג חזק שווה יותר לקוחות, יותר אמון, ויותר מכירות.</p>
+      <div class="iss-title-rule" aria-hidden="true"></div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="iss-grid">
+
+      <!-- Card 1: Ad Design -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.8"></rect>
+            <path d="M8 22L12 14L16 18L20 12L24 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="10" cy="13" r="2" fill="currentColor" opacity="0.6"></circle>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">עיצוב מודעות</h3>
+          <p class="iss-card-desc">מודעות שעוצרות את הגלילה ומביאות לקוחות חדשים</p>
+        </div>
+      </article>
+
+      <!-- Card 2: Branding -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 4L20 12H28L22 17L24 26L16 21L8 26L10 17L4 12H12L16 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">מיתוג עסקי</h3>
+          <p class="iss-card-desc">זהות ויזואלית שמשדרת מקצועיות ובונה אמון מיידי</p>
+        </div>
+      </article>
+
+      <!-- Card 3: Logo Design -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.8"></circle>
+            <path d="M11 16C11 13.2 13.2 11 16 11C18.8 11 21 13.2 21 16C21 18.8 18.8 21 16 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="16" cy="16" r="3" fill="currentColor" opacity="0.5"></circle>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">עיצוב לוגו</h3>
+          <p class="iss-card-desc">לוגו שנחרת בזיכרון ומייצג את הרמה שאתה משדר</p>
+        </div>
+      </article>
+
+      <!-- Card 4: Flyers -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="5" y="3" width="18" height="24" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+            <path d="M9 9H19M9 13H19M9 17H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M20 20L28 28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="26" cy="26" r="3" stroke="currentColor" stroke-width="1.5"></circle>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">פליירים ועלונים</h3>
+          <p class="iss-card-desc">חומרי שיווק מודפסים שגורמים ללקוח לשמור ולהתקשר</p>
+        </div>
+      </article>
+
+      <!-- Card 5: Menus -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 4V28M8 4C8 4 14 6 14 14C14 22 8 24 8 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M20 4V12M20 12C20 12 26 12 26 18V28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M17 4V28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">תפריטים למסעדות</h3>
+          <p class="iss-card-desc">תפריט מעוצב שמגדיל את הזמנות ומשדר איכות</p>
+        </div>
+      </article>
+
+      <!-- Card 6: Stickers -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.8"></circle>
+            <path d="M16 4C16 4 22 10 22 16C22 22 16 28 16 28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M4 16H28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M5.5 11H26.5M5.5 21H26.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"></path>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">מדבקות ממותגות</h3>
+          <p class="iss-card-desc">מדבקות שהופכות כל אריזה לחוויית מותג בלתי נשכחת</p>
+        </div>
+      </article>
+
+      <!-- Card 7: Vehicle Graphics -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 20H28V24H4V20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M6 20L9 12H23L26 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <rect x="10" y="14" width="5" height="4" rx="1" stroke="currentColor" stroke-width="1.5"></rect>
+            <rect x="17" y="14" width="5" height="4" rx="1" stroke="currentColor" stroke-width="1.5"></rect>
+            <circle cx="9" cy="24" r="2.5" stroke="currentColor" stroke-width="1.5"></circle>
+            <circle cx="23" cy="24" r="2.5" stroke="currentColor" stroke-width="1.5"></circle>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">עיצוב לרכב</h3>
+          <p class="iss-card-desc">הרכב שלך הוא שלט נע — תן לו להביא לקוחות</p>
+        </div>
+      </article>
+
+      <!-- Card 8: Banners -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="5" width="28" height="16" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+            <path d="M10 27H22M16 21V27" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M8 10H24M8 15H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"></path>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">באנרים ושלטים</h3>
+          <p class="iss-card-desc">שלטים שמושכים עיניים ומביאים תנועה לעסק שלך</p>
+        </div>
+      </article>
+
+      <!-- Card 9: AI Edits -->
+      <article class="iss-card">
+        <div class="iss-card-glow" aria-hidden="true"></div>
+        <div class="iss-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 26L14 18L18 22L22 16L26 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M26 6L28 8L26 10L24 8L26 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            <path d="M20 4L22 6L18 10L16 8L20 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            <path d="M4 8H12M8 4V12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div class="iss-card-body">
+          <h3 class="iss-card-title">עריכות AI מתקדמות</h3>
+          <p class="iss-card-desc">טכנולוגיית AI לתמונות מוכנות לפרסום תוך שעות</p>
+        </div>
+      </article>
+
+      <!-- Card 10: Landing Pages — FEATURED WIDE CARD -->
+      <article class="iss-card iss-card--featured">
+        <div class="iss-card-glow iss-card-glow--featured" aria-hidden="true"></div>
+        <div class="iss-featured-inner">
+          <div class="iss-featured-content">
+            <div class="iss-card-icon iss-card-icon--featured">
+              <svg data-element-type="icon" data-icon-type="svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="3" y="5" width="34" height="26" rx="3" stroke="currentColor" stroke-width="2"></rect>
+                <path d="M3 12H37" stroke="currentColor" stroke-width="2"></path>
+                <circle cx="8" cy="8.5" r="1.5" fill="currentColor" opacity="0.5"></circle>
+                <circle cx="13" cy="8.5" r="1.5" fill="currentColor" opacity="0.5"></circle>
+                <circle cx="18" cy="8.5" r="1.5" fill="currentColor" opacity="0.5"></circle>
+                <path d="M11 20H29M15 25H25" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M20 17V31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="iss-featured-badge">הכי מבוקש</span>
+              <h3 class="iss-card-title iss-card-title--featured">דפי נחיתה שמוכרים</h3>
+              <p class="iss-card-desc iss-card-desc--featured">דף נחיתה מקצועי הוא כלי המכירה החזק ביותר שלך — אנחנו בונים דפים שגורמים ללקוח לפעול מיידית. עיצוב חד, מסרים ממוקדים, ומבנה שיווקי שמוכיח את עצמו.</p>
+              <a href="#contact" class="iss-featured-cta">קבל הצעת מחיר <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="iss-featured-visual" aria-hidden="true">
+            <div class="iss-featured-mockup">
+              <div class="iss-mockup-bar"></div>
+              <div class="iss-mockup-line iss-mockup-line--wide"></div>
+              <div class="iss-mockup-line iss-mockup-line--medium"></div>
+              <div class="iss-mockup-btn"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <!-- End Grid -->
+
+    <!-- Bottom CTA hint -->
+    <div class="iss-bottom-cta">
+      <p class="iss-bottom-cta-text">העסק שלך נראה כמו הרמה שאתה משדר — בוא נעלה אותה יחד</p>
+      <a href="#contact" class="iss-btn-primary">בואו נדבר <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <!-- Bottom Wave Divider -->
+  <div class="iss-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 L0,45 Q100,20 200,42 T400,30 Q500,20 600,38 T800,28 Q900,18 1000,36 T1200,32 L1200,90 Z" fill="#F3EEE7"></path>
+    </svg>
+  </div>
+</section>
+
+<section data-band-index="2" id="benefits" class="index-benefits-section" data-layout-spec="בית-benefits" dir="rtl">
+
+  <!-- Warm paper texture overlay -->
+  <div class="ibs-texture-overlay" aria-hidden="true"></div>
+
+  <!-- Decorative fountain pen SVG accent -->
+  <svg class="ibs-pen-accent" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M160,20 C140,60 120,100 100,160 C80,220 60,280 40,380" stroke="#D4AF6A" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.22"></path>
+    <path d="M160,20 L148,8 L136,22 L152,28 Z" fill="#D4AF6A" opacity="0.22"></path>
+    <path d="M100,160 C95,165 88,168 82,166 C76,164 72,158 75,152" stroke="#D4AF6A" stroke-width="1" opacity="0.18"></path>
+  </svg>
+
+  <!-- Main container -->
+  <div class="ibs-container">
+
+    <!-- 2-column main block -->
+    <div class="ibs-main-grid">
+
+      <!-- START column: content -->
+      <div class="ibs-content-col">
+        <span class="ibs-eyebrow">למה לבחור בסטודיו AURA</span>
+        <h2 class="ibs-heading">עיצוב שלא רק נראה טוב —<br><em>הוא מביא לקוחות</em></h2>
+        <p class="ibs-intro-text">אנחנו לא סתם מעצבים גרפיקה — אנחנו בונים נוכחות עסקית שמוכרת. כל פרויקט מטופל עם חשיבה שיווקית עמוקה, ביצוע ברמת סוכנות בינלאומית, ויחס אישי שמרגיש כמו שותף עסקי אמיתי.</p>
+
+        <!-- Benefit rows -->
+        <ul class="ibs-benefit-list">
+          <li class="ibs-benefit-item">
+            <div class="ibs-benefit-icon" aria-hidden="true">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"></circle>
+                <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <div class="ibs-benefit-text">
+              <h3 class="ibs-benefit-title">מסירה מהירה ללא פשרות</h3>
+              <p class="ibs-benefit-desc">זמני ביצוע מהירים עם שמירה על איכות פרימיום — כי הזמן שלך הוא כסף.</p>
+            </div>
+          </li>
+          <li class="ibs-benefit-item">
+            <div class="ibs-benefit-icon" aria-hidden="true">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+              </svg>
+            </div>
+            <div class="ibs-benefit-text">
+              <h3 class="ibs-benefit-title">יחס אישי לכל לקוח</h3>
+              <p class="ibs-benefit-desc">אתה לא מספר בתור — אתה שותף. נלמד את העסק שלך לעומק ונעצב לפי הצרכים הספציפיים שלך.</p>
+            </div>
+          </li>
+          <li class="ibs-benefit-item">
+            <div class="ibs-benefit-icon" aria-hidden="true">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></polygon>
+              </svg>
+            </div>
+            <div class="ibs-benefit-text">
+              <h3 class="ibs-benefit-title">ביצוע ברמה גבוהה</h3>
+              <p class="ibs-benefit-desc">עיצוב גרפי לעסקים ברמת סוכנות בינלאומית — לוגואים, מיתוג, פרסום ודיגיטל שנראים כמו חברות גדולות.</p>
+            </div>
+          </li>
+          <li class="ibs-benefit-item">
+            <div class="ibs-benefit-icon" aria-hidden="true">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                <path d="M2 20h20M6 20V10m4 10V4m4 16v-6m4 6v-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <div class="ibs-benefit-text">
+              <h3 class="ibs-benefit-title">חשיבה שיווקית עמוקה</h3>
+              <p class="ibs-benefit-desc">כל עיצוב מחושב כדי למשוך לקוחות, לבנות אמון ולהמיר צופים לרוכשים — לא רק להיראות יפה.</p>
+            </div>
+          </li>
+          <li class="ibs-benefit-item">
+            <div class="ibs-benefit-icon" aria-hidden="true">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="ibs-benefit-text">
+              <h3 class="ibs-benefit-title">מותאם לכל קהל — כולל הציבור החרדי</h3>
+              <p class="ibs-benefit-desc">ניסיון עשיר בעיצוב לעסקים חרדיים, מסעדות, מאפיות, חנויות ונהגים — עם הבנה תרבותית מלאה.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- END column: visual mockup collage -->
+      <div class="ibs-visual-col">
+        <div class="ibs-mockup-stack">
+          <!-- Main large mockup panel -->
+          <div class="ibs-mockup-main">
+            <div class="ibs-mockup-frame">
+              <img loading="lazy" decoding="async" data-placeholder="index-benefits-image-1" data-context="Premium print branding mockup scene for an Israeli graphic design studio — showing a luxury restaurant menu, business cards, and brand identity materials laid flat on a marble surface with warm golden lighting, champagne tones, and elegant Hebrew typography visible on the materials. High-end editorial photography style, dark background with gold accents." width="560" height="420" src="/assets/site-index-benefits-image-1.webp" alt="מוקאפ עיצוב מיתוג פרימיום למסעדה ועסקים" class="ibs-mockup-img">
+              <!-- Gold foil corner accent -->
+              <div class="ibs-gold-corner" aria-hidden="true"></div>
+              <!-- Floating badge -->
+              <div class="ibs-floating-badge">
+                <span class="ibs-badge-number">+200</span>
+                <span class="ibs-badge-label">עסקים מרוצים</span>
+              </div>
+            </div>
+          </div>
+          <!-- Smaller peeking backplate -->
+          <div class="ibs-mockup-secondary">
+            <div class="ibs-mockup-secondary-frame">
+              <img loading="lazy" decoding="async" data-placeholder="index-benefits-image-2" data-context="Branding design mockup for Israeli bakery and retail businesses — showing packaging design, flyers, stickers, and loyalty cards with warm gold and cream color palette, Hebrew typography, and artisan feel. The materials are slightly fanned out on a textured surface, showing professional graphic design for small business owners." width="320" height="240" src="/assets/site-index-benefits-image-2.webp" alt="עיצוב מיתוג למאפייה ועסק קמעוני" class="ibs-mockup-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END 2-column grid -->
+
+  </div>
+  <!-- END container -->
+
+  <!-- Full-width persuasion band -->
+  <div class="ibs-persuasion-band">
+    <div class="ibs-persuasion-inner">
+      <div class="ibs-persuasion-item">
+        <span class="ibs-persuasion-quote">אנשים קונים קודם עם העיניים</span>
+      </div>
+      <div class="ibs-persuasion-divider" aria-hidden="true"></div>
+      <div class="ibs-persuasion-item">
+        <span class="ibs-persuasion-quote">העסק שלך נראה כמו הרמה שאתה משדר</span>
+      </div>
+      <div class="ibs-persuasion-divider" aria-hidden="true"></div>
+      <div class="ibs-persuasion-item">
+        <span class="ibs-persuasion-quote">מיתוג חזק = יותר אמון = <em class="ibs-accent-phrase">יותר לקוחות</em></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom torn-paper divider transitioning to portfolio section -->
+  <div class="ibs-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 L0,42 Q30,36 60,44 T120,38 Q160,42 200,34 T280,40 Q320,36 360,44 T440,37 Q480,42 520,35 T600,41 Q640,37 680,44 T760,38 Q800,43 840,35 T920,41 Q960,36 1000,44 T1080,38 Q1120,42 1160,35 T1240,41 Q1300,37 1340,44 T1400,39 L1440,42 L1440,90 Z" fill="#0A0A0A"></path>
+      <!-- Gold foil shimmer line -->
+      <path d="M0,42 Q30,36 60,44 T120,38 Q160,42 200,34 T280,40 Q320,36 360,44 T440,37 Q480,42 520,35 T600,41 Q640,37 680,44 T760,38 Q800,43 840,35 T920,41 Q960,36 1000,44 T1080,38 Q1120,42 1160,35 T1240,41 Q1300,37 1340,44 T1400,39 L1440,42" fill="#0A0A0A" stroke="#D4AF6A" stroke-width="1.2" opacity="0.5"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section data-band-index="3" id="portfolio" class="index-portfolio-section" data-layout-spec="בית-portfolio" dir="rtl">
+
+  <!-- Decorative Background Elements -->
+  <div class="portfolio-bg-pattern" aria-hidden="true"></div>
+  <div class="portfolio-gold-glow portfolio-gold-glow--right" aria-hidden="true"></div>
+  <div class="portfolio-gold-glow portfolio-gold-glow--left" aria-hidden="true"></div>
+
+  <!-- Section Header -->
+  <div class="portfolio-container">
+    <div class="portfolio-header">
+      <span class="portfolio-eyebrow">עבודות נבחרות</span>
+      <h2 class="portfolio-title">כל פרויקט — <span class="portfolio-title-accent">תוצאה עסקית</span></h2>
+      <p class="portfolio-subtitle">לא רק עיצוב יפה — מיתוג שמביא לקוחות, בונה אמון, ומשדר רמה שמתחרים לא יכולים להתעלם ממנה.</p>
+      <div class="portfolio-title-rule" aria-hidden="true"></div>
+    </div>
+
+    <!-- Masonry-Style Grid -->
+    <div class="portfolio-grid">
+
+      <!-- Tile 1: LARGE ANCHOR — Food Branding -->
+      <article class="portfolio-tile portfolio-tile--large portfolio-tile--1">
+        <div class="portfolio-tile-image-wrap">
+          <img loading="lazy" decoding="async" data-placeholder="index-portfolio-image-1" data-context="Premium food branding mockup for an Israeli bakery — artisan bread packaging, kraft paper bags with gold foil logo, elegant label design with Hebrew typography, warm studio lighting, glossy print reflections, luxury editorial feel" width="700" height="500" src="/assets/site-index-portfolio-image-1.webp" alt="מיתוג מאפייה — אריזות פרימיום עם לוגו בהטבעת זהב">
+          <div class="portfolio-tile-overlay" aria-hidden="true"></div>
+          <span class="portfolio-category-badge">מיתוג מזון</span>
+        </div>
+        <div class="portfolio-tile-caption">
+          <h3 class="portfolio-tile-title">מאפיית לחם הארץ</h3>
+          <p class="portfolio-tile-desc">נוכחות מדף חזקה יותר — אריזה שמוכרת לפני שהלקוח טועם.</p>
+        </div>
+      </article>
+
+      <!-- Tile 2: Small — Logo Design -->
+      <article class="portfolio-tile portfolio-tile--small portfolio-tile--2">
+        <div class="portfolio-tile-image-wrap">
+          <img loading="lazy" decoding="async" data-placeholder="index-portfolio-image-2" data-context="Premium logo design showcase for an Israeli business — embossed stationery close-up, business card with gold foil letterpress, black and gold color scheme, soft light sweep across foil surface, luxury graphic design studio aesthetic" width="400" height="300" src="/assets/site-index-portfolio-image-2.webp" alt="עיצוב לוגו ומיתוג — כרטיסי ביקור עם הטבעת זהב">
+          <div class="portfolio-tile-overlay" aria-hidden="true"></div>
+          <span class="portfolio-category-badge">לוגו ומיתוג</span>
+        </div>
+        <div class="portfolio-tile-caption">
+          <h3 class="portfolio-tile-title">לוגו שמשדר רמה</h3>
+          <p class="portfolio-tile-desc">רושם ראשוני פרימיום — הלקוח מרגיש את האיכות לפני שפתח פה.</p>
+        </div>
+      </article>
+
+      <!-- Tile 3: Small — Poster/Ad Design -->
+      <article class="portfolio-tile portfolio-tile--small portfolio-tile--3">
+        <div class="portfolio-tile-image-wrap">
+          <img loading="lazy" decoding="async" data-placeholder="index-portfolio-image-3" data-context="Eye-catching promotional poster design for an Israeli restaurant — bold Hebrew typography, dark dramatic background, food photography mockup, social media ad layout, gold accent lines, professional graphic design for business advertising" width="400" height="300" src="/assets/site-index-portfolio-image-3.webp" alt="עיצוב פוסטר ומודעה לעסק — פרסום מקצועי לרשתות חברתיות">
+          <div class="portfolio-tile-overlay" aria-hidden="true"></div>
+          <span class="portfolio-category-badge">פוסטרים ומודעות</span>
+        </div>
+        <div class="portfolio-tile-caption">
+          <h3 class="portfolio-tile-title">מודעות שעוצרות את הגלילה</h3>
+          <p class="portfolio-tile-desc">משיכת עין חזקה יותר — פרסום שמגייס לקוחות 24/7.</p>
+        </div>
+      </article>
+
+      <!-- Tile 4: LARGE ANCHOR — Before/After Split Frame -->
+      <article class="portfolio-tile portfolio-tile--large portfolio-tile--before-after portfolio-tile--4">
+        <div class="portfolio-tile-image-wrap portfolio-split-wrap">
+          <div class="portfolio-split-frame">
+            <div class="portfolio-split-side portfolio-split-before">
+              <span class="portfolio-split-label">לפני</span>
+              <img loading="lazy" decoding="async" data-placeholder="index-portfolio-image-4" data-context="Before state of a small Israeli business branding — generic amateur logo on plain white background, low quality design, no visual hierarchy, typical small business DIY look, dull and unprofessional appearance" width="350" height="500" src="/assets/site-index-portfolio-image-4.webp" alt="לפני המיתוג — מצב עיצובי ראשוני של עסק">
+              <div class="portfolio-split-overlay portfolio-split-overlay--before" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-split-divider" aria-hidden="true">
+              <span class="portfolio-split-divider-icon" aria-hidden="true">
+                <svg data-element-type="icon" data-icon-type="svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="14" cy="14" r="13" fill="#191816" stroke="#D4AF6A" stroke-width="1.5"></circle>
+                  <path d="M9 14h10M16 11l3 3-3 3" stroke="#D4AF6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </div>
+            <div class="portfolio-split-side portfolio-split-after">
+              <span class="portfolio-split-label">אחרי</span>
+              <img loading="lazy" decoding="async" data-placeholder="index-portfolio-image-5" data-context="After state of a premium Israeli business rebranding — sophisticated logo redesign on dark background, gold foil accents, professional brand identity system, business cards, letterhead, cohesive visual identity, luxury graphic design transformation" width="350" height="500" src="/assets/site-index-portfolio-image-5.webp" alt="אחרי המיתוג — טרנספורמציה עיצובית מלאה של העסק">
+              <div class="portfolio-split-overlay portfolio-split-overlay--after" aria-hidden="true"></div>
+            </div>
+          </div>
+          <span class="portfolio-category-badge portfolio-category-badge--split">לפני / אחרי</span>
+        </div>
+        <div class="portfolio-tile-caption">
+          <h3 class="portfolio-tile-title">טרנספורמציה מלאה — עסק לשוק</h3>
+          <p class="portfolio-tile-desc">אמינות גבוהה יותר — כשהמיתוג משתנה, הלקוחות מתחילים לשלם יותר.</p>
+        </div>
+      </article>
+
+      <!-- Tile 5: Small — Business Cards -->
+      <article class="portfolio-tile portfolio-tile--small portfolio-tile--5">
+        <div class="portfolio-tile-image-wrap">
+          <img loading="lazy" decoding="async" data-placeholder="index-portfolio-image-6" data-context="Luxury business card design for Israeli professionals — multiple cards fanned out, embossed Hebrew typography, matte black with gold foil details, soft studio lighting with glossy reflections, premium print design close-up" width="400" height="300" src="/assets/site-index-portfolio-image-6.webp" alt="עיצוב כרטיסי ביקור יוקרתיים — הטבעה ורדיד זהב">
+          <div class="portfolio-tile-overlay" aria-hidden="true"></div>
+          <span class="portfolio-category-badge">כרטיסי ביקור</span>
+        </div>
+        <div class="portfolio-tile-caption">
+          <h3 class="portfolio-tile-title">כרטיס ביקור שלא זורקים</h3>
+          <p class="portfolio-tile-desc">רושם בלתי נשכח — כרטיס שנשמר ומועבר הלאה.</p>
+        </div>
+      </article>
+
+      <!-- Tile 6: Small — Vehicle Graphics -->
+      <article class="portfolio-tile portfolio-tile--small portfolio-tile--6">
+        <div class="portfolio-tile-image-wrap">
+          <img loading="lazy" decoding="async" data-placeholder="index-portfolio-image-6" data-context="Professional vehicle wrap design for an Israeli delivery driver or small business — white van with bold Hebrew brand graphics, gold and black color scheme, professional vehicle branding, street visibility, mobile advertising design" width="400" height="300" src="/assets/site-index-portfolio-image-6.webp" alt="עיצוב גרפיקה לרכב — מיתוג נייד לעסק">
+          <div class="portfolio-tile-overlay" aria-hidden="true"></div>
+          <span class="portfolio-category-badge">גרפיקה לרכב</span>
+        </div>
+        <div class="portfolio-tile-caption">
+          <h3 class="portfolio-tile-title">הרכב שלך — שלט נייד</h3>
+          <p class="portfolio-tile-desc">נראות רחוב חזקה יותר — כל נסיעה היא חשיפת מותג.</p>
+        </div>
+      </article>
+
+    </div><!-- end portfolio-grid -->
+
+    <!-- CTA Row -->
+    <div class="portfolio-cta-row">
+      <p class="portfolio-cta-text">רוצה לראות עוד? בוא נדבר על הפרויקט שלך.</p>
+      <a href="#contact" class="portfolio-cta-btn">
+        <span>צור קשר עכשיו</span>
+        <svg data-element-type="icon" data-icon-type="svg" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 9H4M7 6l-3 3 3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+
+  </div><!-- end portfolio-container -->
+
+  <!-- Bottom Diagonal Divider -->
+  <div class="portfolio-divider-wrapper" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 L0,30 L1440,0 L1440,90 Z" fill="#F3EEE7"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section data-band-index="4" id="testimonials" class="index-testimonials-section" data-layout-spec="בית-testimonials" dir="rtl">
+  <!-- Decorative gold radial glow -->
+  <div class="its-deco-glow" aria-hidden="true"></div>
+
+  <div class="its-container">
+
+    <!-- Central Intro Block -->
+    <div class="its-intro">
+      <span class="its-eyebrow">מה אומרים עלינו</span>
+      <h2 class="its-heading">לקוחות שהפסיקו להיות בינוניים</h2>
+      <p class="its-subheading">עסקים שהחליטו להשקיע במיתוג רציני — ושינו את הרושם שהם משדרים לעולם.</p>
+    </div>
+
+    <!-- Trust Chips Row -->
+    <div class="its-chips-row" aria-label="תחומי לקוחות">
+      <span class="its-chip"><i class="fa-solid fa-store"></i> בעלי עסקים</span>
+      <span class="its-chip"><i class="fa-solid fa-bread-slice"></i> מאפיות ומסעדות</span>
+      <span class="its-chip"><i class="fa-solid fa-tags"></i> מותגי אופנה ורטייל</span>
+      <span class="its-chip"><i class="fa-solid fa-car"></i> שירותי נסיעות</span>
+      <span class="its-chip"><i class="fa-solid fa-synagogue"></i> עסקים חרדיים</span>
+      <span class="its-chip"><i class="fa-solid fa-briefcase"></i> חברות קטנות</span>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="its-grid">
+
+      <!-- Card 1 -->
+      <article class="its-card">
+        <div class="its-quote-mark" aria-hidden="true">“</div>
+        <blockquote class="its-quote-text">
+          "מאז שעדכנו את הלוגו והמיתוג, אנשים מתחילים לשאול אותנו אם פתחנו סניף חדש. הרושם השתנה לגמרי — נראים כמו רשת, לא כמו מאפייה קטנה."
+        </blockquote>
+        <footer class="its-card-footer">
+          <div class="its-client-info">
+            <span class="its-client-name">בעלת מאפייה, תל אביב</span>
+            <span class="its-client-outcome"><i class="fa-solid fa-arrow-trend-up"></i> יותר לקוחות חדשים בחודש הראשון</span>
+          </div>
+          <div class="its-stars" aria-label="דירוג 5 כוכבים">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="its-card its-card--featured">
+        <div class="its-quote-mark" aria-hidden="true">“</div>
+        <blockquote class="its-quote-text">
+          "הגדרתי לסטודיו AURA מה אני רוצה — וקיבלתי משהו שהפתיע אותי. המסעדה שלנו נראית עכשיו ברמה של מקומות בתל אביב. הלקוחות מצלמים את התפריט ומעלים לאינסטגרם."
+        </blockquote>
+        <footer class="its-card-footer">
+          <div class="its-client-info">
+            <span class="its-client-name">מנהל מסעדה, ירושלים</span>
+            <span class="its-client-outcome"><i class="fa-solid fa-arrow-trend-up"></i> חשיפה אורגנית גדלה פי 3</span>
+          </div>
+          <div class="its-stars" aria-label="דירוג 5 כוכבים">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="its-card">
+        <div class="its-quote-mark" aria-hidden="true">“</div>
+        <blockquote class="its-quote-text">
+          "היה לי לוגו ישן שהתביישתי לשים על הרכב. היום אני מסתובב בגאווה — כל כמה ימים מישהו שואל מי עיצב לי. זה שינה את האמינות שלי מול לקוחות."
+        </blockquote>
+        <footer class="its-card-footer">
+          <div class="its-client-info">
+            <span class="its-client-name">בעל שירות הסעות, חיפה</span>
+            <span class="its-client-outcome"><i class="fa-solid fa-arrow-trend-up"></i> יותר פניות דרך ממליצים</span>
+          </div>
+          <div class="its-stars" aria-label="דירוג 5 כוכבים">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="its-card">
+        <div class="its-quote-mark" aria-hidden="true">“</div>
+        <blockquote class="its-quote-text">
+          "פניתי לסטודיו AURA אחרי שניסיתי שני מעצבים אחרים. ההבדל הוא בחשיבה השיווקית — הם לא רק מעצבים, הם מבינים מה הלקוח שלי צריך לראות כדי להחליט לקנות."
+        </blockquote>
+        <footer class="its-card-footer">
+          <div class="its-client-info">
+            <span class="its-client-name">בעלת בוטיק אופנה, בני ברק</span>
+            <span class="its-client-outcome"><i class="fa-solid fa-arrow-trend-up"></i> שיפור מיידי בתדמית הדיגיטלית</span>
+          </div>
+          <div class="its-stars" aria-label="דירוג 5 כוכבים">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="its-card">
+        <div class="its-quote-mark" aria-hidden="true">“</div>
+        <blockquote class="its-quote-text">
+          "הזמנתי עיצוב פליירים לאירוע קהילתי. הגיעו עם הצעה שהתאימה בדיוק לקהל החרדי שלנו — בצבעים, בפונטים, בטון. קיבלנו מחמאות מכל הקהל."
+        </blockquote>
+        <footer class="its-card-footer">
+          <div class="its-client-info">
+            <span class="its-client-name">מנהל עסק קהילתי, מודיעין עילית</span>
+            <span class="its-client-outcome"><i class="fa-solid fa-arrow-trend-up"></i> תגובה חיובית מהקהל</span>
+          </div>
+          <div class="its-stars" aria-label="דירוג 5 כוכבים">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="its-card">
+        <div class="its-quote-mark" aria-hidden="true">“</div>
+        <blockquote class="its-quote-text">
+          "הזמנתי עיצוב לרכב ולכרטיסי ביקור יחד. הייתי מוכן לשלם יותר — מה שקיבלתי היה מעל הציפיות. עכשיו נראה כמו חברה גדולה, לא עצמאי."
+        </blockquote>
+        <footer class="its-card-footer">
+          <div class="its-client-info">
+            <span class="its-client-name">בעל חברת שיפוצים, ראשון לציון</span>
+            <span class="its-client-outcome"><i class="fa-solid fa-arrow-trend-up"></i> תדמית מקצועית שמשדרת אמינות</span>
+          </div>
+          <div class="its-stars" aria-label="דירוג 5 כוכבים">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </footer>
+      </article>
+
+    </div><!-- /its-grid -->
+
+    <!-- Credibility Note -->
+    <div class="its-credibility">
+      <div class="its-credibility-line" aria-hidden="true"></div>
+      <p class="its-credibility-text">
+        בסטודיו AURA, כל פרויקט מקבל יחס אישי מלא — אנחנו לא מפעל עיצוב. אנחנו שותפים אסטרטגיים שמבינים שמיתוג חזק הוא לא הוצאה, הוא השקעה שמחזירה את עצמה. כל לקוח, קטן כגדול, מקבל את אותה רמת מחשבה, דיוק, וחשיבה שיווקית.
+      </p>
+      <div class="its-credibility-line" aria-hidden="true"></div>
+    </div>
+
+  </div><!-- /its-container -->
+
+  <!-- Bottom Divider -->
+  <div class="its-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L0,44 Q120,28 240,40 T480,32 Q600,44 720,36 T960,40 Q1080,32 1200,42 T1440,36 L1440,80 Z" fill="#0A0A0A"></path>
+      <line x1="0" y1="44" x2="120" y2="38" stroke="#D4AF6A" stroke-width="1" opacity="0.35"></line>
+      <line x1="120" y1="38" x2="360" y2="46" stroke="#D4AF6A" stroke-width="1" opacity="0.35"></line>
+      <line x1="360" y1="46" x2="600" y2="34" stroke="#D4AF6A" stroke-width="1" opacity="0.35"></line>
+      <line x1="600" y1="34" x2="840" y2="42" stroke="#D4AF6A" stroke-width="1" opacity="0.35"></line>
+      <line x1="840" y1="42" x2="1080" y2="36" stroke="#D4AF6A" stroke-width="1" opacity="0.35"></line>
+      <line x1="1080" y1="36" x2="1440" y2="44" stroke="#D4AF6A" stroke-width="1" opacity="0.35"></line>
+    </svg>
+  </div>
+
+</section>
+
+<section data-band-index="5" id="stats" class="index-stats-section" data-layout-spec="בית-stats" dir="rtl">
+  <!-- Noise texture overlay -->
+  <div class="index-stats-noise" aria-hidden="true"></div>
+
+  <!-- Upper Band: Stats -->
+  <div class="index-stats-container">
+    <div class="index-stats-header">
+      <span class="index-stats-eyebrow">מספרים שמדברים</span>
+      <h2 class="index-stats-title">למה עסקים בוחרים בסטודיו AURA</h2>
+      <div class="index-stats-title-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="index-stats-grid">
+      <div class="index-stat-tile">
+        <div class="index-stat-inner">
+          <span class="index-stat-number">+200</span>
+          <div class="index-stat-divider" aria-hidden="true"></div>
+          <span class="index-stat-label">עסקים שקיבלו פנים חדשות</span>
+          <p class="index-stat-desc">מגוון ענפים — מסעדות, חנויות, נהגים, עסקים חרדיים ועוד</p>
+        </div>
+      </div>
+
+      <div class="index-stat-tile">
+        <div class="index-stat-inner">
+          <span class="index-stat-number">48H</span>
+          <div class="index-stat-divider" aria-hidden="true"></div>
+          <span class="index-stat-label">זמן תגובה ממוצע לפרויקט</span>
+          <p class="index-stat-desc">פרויקטים מתחילים מהר — בלי המתנות ובלי בירוקרטיה</p>
+        </div>
+      </div>
+
+      <div class="index-stat-tile">
+        <div class="index-stat-inner">
+          <span class="index-stat-number">97%</span>
+          <div class="index-stat-divider" aria-hidden="true"></div>
+          <span class="index-stat-label">לקוחות שחוזרים לפרויקט נוסף</span>
+          <p class="index-stat-desc">שביעות רצון גבוהה היא לא מקרה — היא תוצאה של תהליך</p>
+        </div>
+      </div>
+
+      <div class="index-stat-tile">
+        <div class="index-stat-inner">
+          <span class="index-stat-number">∞</span>
+          <div class="index-stat-divider" aria-hidden="true"></div>
+          <span class="index-stat-label">התאמה לכל סוג עסק</span>
+          <p class="index-stat-desc">מיתוג לחברות גדולות, עיצוב לעסקים קטנים — אותה רמה לכולם</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lower Band: Trust + FAQ -->
+  <div class="index-stats-lower">
+    <div class="index-stats-lower-container">
+
+      <!-- Trust Paragraph (START / RIGHT) -->
+      <div class="index-stats-trust">
+        <span class="index-stats-eyebrow">הגישה שלנו</span>
+        <h3 class="index-stats-trust-title">עיצוב שמביא תוצאות — לא רק מחמאות</h3>
+        <p class="index-stats-trust-body">בסטודיו AURA אנחנו לא מעצבים כדי שייראה יפה. אנחנו מעצבים כדי שהעסק שלך ימכור יותר. כל לוגו, כל פוסטר, כל כרטיס ביקור — נבנה עם חשיבה שיווקית שמביאה לקוחות אמיתיים.</p>
+        <p class="index-stats-trust-body">"אנשים קונים קודם עם העיניים" — זה לא סלוגן, זו עובדה פסיכולוגית שאנחנו מיישמים בכל פרויקט. מיתוג חזק = יותר אמון = יותר לקוחות.</p>
+        <div class="index-stats-trust-badges">
+          <span class="index-trust-badge"><i class="fa-solid fa-shield-halved"></i> עיצוב מקצועי</span>
+          <span class="index-trust-badge"><i class="fa-solid fa-bolt"></i> מהיר ואמין</span>
+          <span class="index-trust-badge"><i class="fa-solid fa-star"></i> חשיבה שיווקית</span>
+        </div>
+      </div>
+
+      <!-- FAQ Stack (END / LEFT) -->
+      <div class="index-stats-faq">
+        <span class="index-stats-eyebrow">שאלות נפוצות</span>
+
+        <div class="index-faq-item">
+          <div class="index-faq-q">
+            <i class="fa-solid fa-circle-chevron-left index-faq-icon" aria-hidden="true"></i>
+            <h3 class="index-faq-question">למי מתאים הסטודיו?</h3>
+          </div>
+          <p class="index-faq-answer">לכל עסק שרוצה להיראות מקצועי ולמשוך לקוחות. מסעדות, מאפיות, נהגים, חנויות, עסקים חרדיים, חברות קטנות וגדולות — אנחנו מתאימים את הסגנון לקהל היעד שלך בדיוק.</p>
+        </div>
+
+        <div class="index-faq-item">
+          <div class="index-faq-q">
+            <i class="fa-solid fa-circle-chevron-left index-faq-icon" aria-hidden="true"></i>
+            <h3 class="index-faq-question">כמה זמן לוקח פרויקט?</h3>
+          </div>
+          <p class="index-faq-answer">תלוי בהיקף, אבל פרויקטים פשוטים (לוגו, פוסטר, כרטיס ביקור) יכולים להיות מוכנים תוך 48–72 שעות. מיתוג מלא לוקח מעט יותר — ועדיין הרבה יותר מהיר מהממוצע בשוק.</p>
+        </div>
+
+        <div class="index-faq-item">
+          <div class="index-faq-q">
+            <i class="fa-solid fa-circle-chevron-left index-faq-icon" aria-hidden="true"></i>
+            <h3 class="index-faq-question">האם יש התאמה לציבור החרדי?</h3>
+          </div>
+          <p class="index-faq-answer">בהחלט. אנחנו מכירים את הקודים הוויזואליים, הצבעים, הפונטים והמסרים שמדברים לקהל החרדי — ויוצרים עיצוב שמכבד את הזהות ומביא תוצאות.</p>
+        </div>
+
+        <div class="index-faq-item">
+          <div class="index-faq-q">
+            <i class="fa-solid fa-circle-chevron-left index-faq-icon" aria-hidden="true"></i>
+            <h3 class="index-faq-question">מה מייחד את הגישה השיווקית שלכם?</h3>
+          </div>
+          <p class="index-faq-answer">אנחנו לא רק מעצבים — אנחנו חושבים כמו אנשי שיווק. כל החלטת עיצוב נעשית עם שאלה אחת: "האם זה יגרום לאנשים לעצור, להתרשם ולפנות?" אם התשובה לא ברורה — אנחנו משנים.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Divider -->
+  <div class="index-stats-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="statsArcGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#191816" stop-opacity="0"></stop>
+          <stop offset="100%" stop-color="#191816" stop-opacity="1"></stop>
+        </linearGradient>
+      </defs>
+      <path d="M0,90 L0,55 Q360,10 720,30 Q1080,50 1440,15 L1440,90 Z" fill="var(--bg-light)"></path>
+      <rect x="0" y="0" width="1440" height="90" fill="url(#statsArcGrad)" opacity="0.5"></rect>
+    </svg>
+  </div>
+</section>
+
+<section data-band-index="6" id="contact" class="index-contact-section" data-layout-spec="בית-contact" dir="rtl">
+  <!-- Decorative gold radial glow -->
+  <div class="contact-deco-glow" aria-hidden="true"></div>
+  <!-- Decorative ink splash SVG -->
+  <svg class="contact-deco-ink" aria-hidden="true" data-no-icon-edit="true" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="200" cy="180" rx="160" ry="120" fill="none" stroke="#D4AF6A" stroke-width="1.5" opacity="0.10"></ellipse>
+    <path d="M80,200 Q140,80 200,160 Q260,240 320,140 Q360,80 380,200" fill="none" stroke="#D4AF6A" stroke-width="1.5" opacity="0.12"></path>
+    <circle cx="320" cy="100" r="30" fill="#D4AF6A" opacity="0.06"></circle>
+  </svg>
+
+  <div class="contact-container">
+    <!-- Section Header -->
+    <div class="contact-header">
+      <span class="contact-eyebrow">בואו נתחיל</span>
+      <h2 class="contact-title">אם אתה רוצה שהעסק שלך ייראה מקצועי באמת —<br><em>זה הזמן להתחיל</em></h2>
+      <p class="contact-subtitle">כל יום שעובר בלי מיתוג חזק הוא יום שבו לקוחות בוחרים את המתחרים שלך. אנחנו כאן לשנות את זה — מהר.</p>
+      <div class="contact-gold-rule" aria-hidden="true"></div>
+    </div>
+
+    <!-- 2-Column Layout -->
+    <div class="contact-grid">
+
+      <!-- START: Form Column (right in RTL) -->
+      <div class="contact-form-col">
+        <!-- WhatsApp Quick Contact -->
+        
+
+        <!-- Contact Form -->
+        <div class="contact-form-shell">
+          <p class="form-microcopy">מלאו את הפרטים ונחזור אליכם תוך שעות ספורות — אישית ומקצועית.</p>
+          <form class="contact-form" novalidate="">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">שם מלא</label>
+                <input type="text" id="contact-name" name="name" placeholder="ישראל ישראלי" required="">
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">טלפון</label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="050-0000000" required="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">כתובת אימייל</label>
+              <input type="email" id="contact-email" name="email" placeholder="your@email.com" required="">
+            </div>
+            <div class="form-group">
+              <label for="contact-message">ספרו לנו על העסק שלכם</label>
+              <textarea id="contact-message" name="message" rows="4" placeholder="מה העסק שלך? מה אתה צריך? נשמח לשמוע..." required=""></textarea>
+            </div>
+            <div class="privacy-consent">
+              <label class="privacy-consent-label">
+                <input type="checkbox" name="privacy_consent" class="privacy-consent-checkbox" required="">
+                <span>קראתי ואני מסכים/ה ל<a href="/terms" target="_blank">תנאי השימוש</a> ול<a href="/privacy" target="_blank">מדיניות הפרטיות</a></span>
+              </label>
+            </div>
+            <button type="submit" class="contact-submit-btn">
+              <span>שלח הודעה עכשיו</span>
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- END: Persuasion Column (left in RTL) -->
+      <div class="contact-persuasion-col">
+        <div class="persuasion-card">
+          <h3 class="persuasion-title">למה עסקים מצליחים בוחרים סטודיו AURA</h3>
+
+          <!-- Reassurance Points -->
+          <ul class="reassurance-list">
+            <li class="reassurance-item">
+              <div class="reassurance-icon">
+                <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="reassurance-content">
+                <strong>מיתוג שמביא לקוחות</strong>
+                <p>עיצוב חזק = יותר אמון = יותר מכירות. לא עיצוב בשביל עיצוב — אלא כלי עסקי אמיתי.</p>
+              </div>
+            </li>
+            <li class="reassurance-item">
+              <div class="reassurance-icon">
+                <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="reassurance-content">
+                <strong>מהירות ומקצועיות</strong>
+                <p>תהליך עבודה מסודר, מועדי אספקה ברורים, ותקשורת שוטפת לאורך כל הדרך.</p>
+              </div>
+            </li>
+            <li class="reassurance-item">
+              <div class="reassurance-icon">
+                <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <div class="reassurance-content">
+                <strong>יחס אישי לכל לקוח</strong>
+                <p>כל עסק מקבל פתרון מותאם אישית — לא תבניות גנריות, אלא עיצוב שמספר את הסיפור שלך.</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Final Sales Statement -->
+          <div class="final-statement">
+            <p class="final-statement-text">"העסק שלך נראה כמו הרמה שאתה משדר. אנשים קונים קודם עם העיניים — תן להם סיבה לבחור בך."</p>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="contact-details-list">
+            <div class="contact-detail-row">
+              <div class="detail-icon">
+                <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              
+            </div>
+            <div class="contact-detail-row">
+              <div class="detail-icon">
+                <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              
+            </div>
+            <div class="contact-detail-row">
+              <div class="detail-icon">
+                <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              
+            </div>
+            <div class="contact-detail-row">
+              <div class="detail-icon">
+                <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer" dir="rtl" aria-label="כותרת תחתונה של האתר"> <div class="footer-texture-overlay"></div> <div class="footer-gold-line"></div> <div class="footer-container"> <div class="footer-top"> <div class="footer-col footer-col--brand"> <div class="footer-logo-wrap"> <img src="/assets/aura-graphic-design-branding-logo.webp" alt="סטודיו AURA" class="logo"> </div> <p class="footer-tagline">אנחנו יוצרים זהויות מותג שמדברות בשפת הפרימיום — עיצוב גרפי ומיתוג שמשאיר רושם.</p> <div class="footer-social" aria-label="רשתות חברתיות">    </div> </div> <div class="footer-col footer-col--links"> <h3 class="footer-heading"><span class="heading-accent"></span>ניווט מהיר</h3> <ul class="footer-nav" aria-label="קישורי ניווט"> <li><a href="#services">Services</a></li> <li><a href="#benefits">Benefits</a></li> <li><a href="#portfolio">Portfolio</a></li> <li><a href="#testimonials">Testimonials</a></li> <li><a href="#stats">Stats</a></li> </ul> </div> <div class="footer-col footer-col--contact"> <h3 class="footer-heading"><span class="heading-accent"></span>צור קשר</h3> <ul class="footer-contact" aria-label="פרטי יצירת קשר"> <li> <span class="contact-icon"><i class="fas fa-envelope"></i></span> <span class="contact-text"><a href="mailto:[business_email]">[business_email]</a></span> </li> <li> <span class="contact-icon"><i class="fas fa-phone"></i></span> <span class="contact-text"><a href="tel:[business_phone]">[business_phone]</a></span> </li> <li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span> <span class="contact-text">[business_address]</span></a></li> </ul> </div> <div class="footer-col footer-col--hours"> <h3 class="footer-heading"><span class="heading-accent"></span>שעות פעילות</h3> <ul class="footer-hours" aria-label="שעות פעילות"> <li><a href="/"><span class="day">ראשון – חמישי</span><span class="time">09:00 – 18:00</span></a></li> <li><a href="/"><span class="day">שישי</span><span class="time">09:00 – 13:00</span></a></li> <li><a href="/"><span class="day">שבת</span><span class="time closed">סגור</span></a></li> </ul> <div class="footer-badge"><i class="fas fa-star"></i> מיתוג פרימיום בלבד</div> </div> </div> </div> <div class="footer-divider"></div> <div class="footer-bottom"> <div class="footer-container footer-bottom-inner"> <p class="footer-copyright">© 2026 סטודיו AURA. כל הזכויות שמורות.</p> <div class="footer-legal" aria-label="קישורים משפטיים"> <a href="/privacy">מדיניות פרטיות</a> <span class="legal-sep" aria-hidden="true"></span> <a href="/terms">תנאי שימוש</a> <span class="legal-sep" aria-hidden="true"></span> <a href="/accessibility">נגישות</a> <span class="legal-sep" aria-hidden="true"></span> <a href="https://zappy5.com" target="_blank" class="zappy-attribution">נוצר באמצעות Zappy</a> </div> </div> </div> </footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+
+    <script id="zappy-navbar-scroll-effect">
+    (function(){
+      var nb=document.querySelector('nav.navbar,.navbar:not(.zappy-catalog-menu)');
+      var cm=document.querySelector('.zappy-catalog-menu,#zappy-catalog-menu');
+      if(!nb)return;
+      var fb='rgba(243,238,231,0.85)';
+      var th=60;
+      var rs=getComputedStyle(document.documentElement);
+      var td=rs.getPropertyValue('--text-dark').trim()||'#1a1a1a';
+      var tl=rs.getPropertyValue('--text-light').trim()||'#ffffff';
+      var st=true?td:tl;
+      nb.style.transition='background 0.3s ease,backdrop-filter 0.3s ease,-webkit-backdrop-filter 0.3s ease,box-shadow 0.3s ease';
+      if(cm)cm.style.transition='background 0.3s ease,backdrop-filter 0.3s ease,-webkit-backdrop-filter 0.3s ease';
+      var neSel='a,.navbar-brand,.navbar-brand a,.dropdown-toggle,.mobile-toggle,.phone-header-btn,.mobile-hamburger-btn,.mobile-close-btn,.mobile-submenu-toggle,.nav-link';
+      var skipCls=['cart-link','login-link','nav-search-toggle','search-toggle'];
+      function sTC(c,clr){var els=c.querySelectorAll(neSel);for(var i=0;i<els.length;i++){var sk=false;if(els[i].closest('.sub-menu')||els[i].closest('.dropdown-menu')){sk=true;}for(var j=0;j<skipCls.length;j++){if(els[i].classList.contains(skipCls[j])){sk=true;break;}}if(!sk)els[i].style.setProperty('color',clr,'important');}}
+      function cTC(c){var els=c.querySelectorAll(neSel);for(var i=0;i<els.length;i++){if(els[i].closest('.sub-menu')||els[i].closest('.dropdown-menu'))continue;els[i].style.removeProperty('color');}}
+      function applyScrolled(){
+        nb.classList.add('scrolled');
+        if(window.innerWidth>768){
+          nb.style.setProperty('--frosted-text',st);
+          nb.style.setProperty('background-image','none','important');
+          nb.style.setProperty('background-color',fb,'important');
+          nb.style.backdropFilter='blur(12px)';nb.style.webkitBackdropFilter='blur(12px)';nb.style.boxShadow='0 2px 16px rgba(0,0,0,0.12)';
+          sTC(nb,st);
+        }
+        if(cm){cm.classList.add('scrolled');if(window.innerWidth>768){cm.style.setProperty('background',fb,'important');cm.style.setProperty('backdrop-filter','blur(12px)','important');cm.style.setProperty('-webkit-backdrop-filter','blur(12px)','important');sTC(cm,st);}}
+      }
+      function onS(){
+        if(window._zappyNavNoDarkHero) return;
+        if(window.innerWidth<=768){nb.classList.remove('scrolled');cTC(nb);if(cm){cm.classList.remove('scrolled');cTC(cm);}return;}
+        var y=window.scrollY||window.pageYOffset;
+        if(y>th){
+          nb.classList.add('scrolled');nb.style.setProperty('background-color',fb,'important');nb.style.setProperty('background-image','none','important');
+          nb.style.setProperty('--frosted-text',st);nb.style.backdropFilter='blur(12px)';nb.style.webkitBackdropFilter='blur(12px)';nb.style.boxShadow='0 2px 16px rgba(0,0,0,0.12)';
+          sTC(nb,st);
+          if(cm){cm.classList.add('scrolled');cm.style.setProperty('background',fb,'important');cm.style.setProperty('backdrop-filter','blur(12px)','important');cm.style.setProperty('-webkit-backdrop-filter','blur(12px)','important');sTC(cm,st);}
+        }else{
+          nb.classList.remove('scrolled');nb.style.setProperty('background-color','transparent','important');nb.style.removeProperty('background-image');
+          nb.style.removeProperty('--frosted-text');nb.style.backdropFilter='none';nb.style.webkitBackdropFilter='none';nb.style.boxShadow='none';
+          cTC(nb);
+          if(cm){cm.classList.remove('scrolled');cm.style.setProperty('background','transparent','important');cm.style.setProperty('backdrop-filter','none','important');cm.style.setProperty('-webkit-backdrop-filter','none','important');cTC(cm);}
+        }
+      }
+      function sLum(rv,gv,bv){rv/=255;gv/=255;bv/=255;rv=rv<=0.03928?rv/12.92:Math.pow((rv+0.055)/1.055,2.4);gv=gv<=0.03928?gv/12.92:Math.pow((gv+0.055)/1.055,2.4);bv=bv<=0.03928?bv/12.92:Math.pow((bv+0.055)/1.055,2.4);return 0.2126*rv+0.7152*gv+0.0722*bv;}
+      window.addEventListener('scroll',onS,{passive:true});
+      window.addEventListener('resize',onS,{passive:true});
+      onS();
+      var heroEl=document.querySelector('section[class*="hero"],[data-hero-type],main>section:first-child');
+      var hasDH=false;
+      if(heroEl){var hCs=getComputedStyle(heroEl);var hBI=hCs.backgroundImage;if(hBI&&hBI!=='none'){if(hBI.indexOf('url(')!==-1){var hM2=hCs.backgroundColor.match(/\d+/g);if(hM2&&hM2.length>=3){hasDH=sLum(parseInt(hM2[0]),parseInt(hM2[1]),parseInt(hM2[2]))<0.4;}else{hasDH=true;}}else if(hBI.indexOf('gradient')!==-1){var cM=hBI.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/g);if(cM&&cM.length>0){var tLm=0;for(var ci=0;ci<cM.length;ci++){var pts=cM[ci].match(/\d+/g);tLm+=sLum(parseInt(pts[0]),parseInt(pts[1]),parseInt(pts[2]));}hasDH=(tLm/cM.length)<0.4;}else{hasDH=true;}}else{hasDH=true;}}else{var hM=hCs.backgroundColor.match(/\d+/g);if(hM&&hM.length>=3){hasDH=sLum(parseInt(hM[0]),parseInt(hM[1]),parseInt(hM[2]))<0.4;}}}
+      if(!hasDH){window.removeEventListener('scroll',onS);window.removeEventListener('resize',onS);applyScrolled();window._zappyNavNoDarkHero=true;}
+    })();
+    </script>
+</body>
+</html>

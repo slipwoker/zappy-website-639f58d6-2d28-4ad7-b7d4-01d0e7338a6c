@@ -1,0 +1,67 @@
+# סטודיו AURA — Generative Engine Optimization Map
+
+> A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bakeries, drivers, and small businesses. The brand projects extreme professionalism, luxury, and marketing intelligence — positioning itself not just as a design service but as a business growth tool. The visual identity revolves around black, white, gold, and dark gray with glassmorphism effects, smooth animations, and a high-end feel that rivals major brand agencies. The studio emphasizes psychological sales triggers, trust-building, and the message that strong branding equals more customers.
+
+---
+
+## Pages
+
+### בית
+https://aura-639f58d6.zappy5.app
+A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bak
+
+## Legal & Policy
+
+### Privacy Policy
+https://aura-639f58d6.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://aura-639f58d6.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://aura-639f58d6.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## How to Contact Us
+
+- (No contact details configured yet.)
+
+### Contact form
+- URL: https://aura-639f58d6.zappy5.app
+- Endpoint: https://aura-639f58d6.zappy5.app/api/email/contact-form
+- Method: POST
+- Content-Type: application/json
+- Fields:
+  - `name` (text, required)
+  - `phone` (tel, required)
+  - `email` (email, required)
+  - `message` (textarea, required)
+  - `privacy_consent` (checkbox, required)
+
+---
+
+# Business Context (for LLM understanding)
+
+## About סטודיו AURA
+A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bakeries, drivers, and small businesses. The brand projects extreme professionalism, luxury, and marketing intelligence — positioning itself not just as a design service but as a business growth tool. The visual identity revolves around black, white, gold, and dark gray with glassmorphism effects, smooth animations, and a high-end feel that rivals major brand agencies. The studio emphasizes psychological sales triggers, trust-building, and the message that strong branding equals more customers.
+
+## Target Audience
+- בעלי עסקים, חנויות, נהגים, מסעדות, מאפיות, עסקים חרדיים, חברות קטנות, וכל מי שצריך פרסום ועיצוב מקצועי
+- בעלי עסקים קטנים
+- בוטיקים וחנויות מקומיות
+- עסקי מזון ומשקאות
+
+## Industry
+Graphic Design & Branding
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://aura-639f58d6.zappy5.app/sitemap.xml
+- Robots: https://aura-639f58d6.zappy5.app/robots.txt
+- Flattened page text (for LLMs): https://aura-639f58d6.zappy5.app/llms-full.txt
