@@ -2,13 +2,13 @@
 
 A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bakeries, drivers, and small businesses. The brand projects extreme professionalism, luxury, and marketing intelligence — positioning itself not just as a design service but as a business growth tool. The visual identity revolves around black, white, gold, and dark gray with glassmorphism effects, smooth animations, and a high-end feel that rivals major brand agencies. The studio emphasizes psychological sales triggers, trust-building, and the message that strong branding equals more customers.
 
-Source: https://aura-639f58d6.zappy5.app
+Source: https://example.com
 
 ---
 
 ## logo graphic designer near me — סטודיו AURA
 
-URL: https://aura-639f58d6.zappy5.app
+URL: https://example.com
 Description: A premium graphic design and branding studio targeting Israeli business owners across diverse sectors including religious (Haredi) communities, restaurants, bak
 
 logo graphic designer near me — סטודיו AURA
@@ -1066,7 +1066,7 @@ logo graphic designer near me — סטודיו AURA
 
 ## מדיניות פרטיות
 
-URL: https://aura-639f58d6.zappy5.app/privacy
+URL: https://example.com/privacy
 Description: מדיניות הפרטיות שלנו - כיצד אנו אוספים, משתמשים ומגנים על המידע שלכם
 
 מדיניות פרטיות
@@ -1268,7 +1268,7 @@ Description: מדיניות הפרטיות שלנו - כיצד אנו אוספי
 
 ## הצהרת נגישות
 
-URL: https://aura-639f58d6.zappy5.app/accessibility
+URL: https://example.com/accessibility
 Description: הצהרת הנגישות שלנו - מחויבותנו לנגישות דיגיטלית
 
 הצהרת נגישות
@@ -1479,7 +1479,7 @@ Description: הצהרת הנגישות שלנו - מחויבותנו לנגיש�
 
 ## תנאי שימוש
 
-URL: https://aura-639f58d6.zappy5.app/terms
+URL: https://example.com/terms
 Description: תנאי השימוש באתר - הזכויות והחובות של המשתמשים
 
 תנאי שימוש
